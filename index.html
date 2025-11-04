@@ -1,72 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chandramohan S | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
-      background: #0e0e0e;
-      color: #fff;
-      scroll-behavior: smooth;
     }
+    body {
+      background-color: #0e0e0e;
+      color: #f1f1f1;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
     header {
-      background: #111;
-      padding: 20px 50px;
-      text-align: center;
       position: sticky;
       top: 0;
       z-index: 100;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #00adb5;
     }
-    header h1 { font-size: 28px; color: #00adb5; animation: fadeIn 2s; }
+    header h1 {
+      color: #00adb5;
+      font-size: 28px;
+      font-weight: 700;
+    }
     nav a {
-      color: #fff; margin: 0 15px; text-decoration: none; font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: 0.3s;
     }
-    nav a:hover { color: #00adb5; transition: 0.3s; }
+    nav a:hover { color: #00adb5; }
+
     section {
       padding: 80px 10%;
-      animation: fadeIn 2s ease;
+      animation: fadeIn 1.2s ease-in-out;
     }
     h2 {
       color: #00adb5;
-      font-size: 26px;
-      margin-bottom: 20px;
+      font-size: 28px;
+      margin-bottom: 25px;
       border-left: 4px solid #00adb5;
       padding-left: 10px;
     }
-    .skills, .projects, .contact { margin-top: 30px; }
-    .project {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease;
+    .summary, .education, .skills, .experience, .projects, .certifications {
+      margin-bottom: 60px;
     }
-    .project:hover { transform: translateY(-5px); }
+    .card {
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 0px 15px #00adb5;
+    }
+    ul { list-style: none; }
+    ul li { margin-bottom: 8px; }
+
     .btn {
+      display: inline-block;
       background: #00adb5;
       color: #fff;
       padding: 10px 20px;
       text-decoration: none;
-      border-radius: 5px;
-      display: inline-block;
+      border-radius: 6px;
       margin-top: 15px;
-      transition: 0.3s;
+      transition: background 0.3s ease;
     }
     .btn:hover { background: #03c3cc; }
+
     footer {
-      background: #111;
       text-align: center;
-      padding: 20px;
-      font-size: 14px;
+      background: #111;
+      padding: 30px 0;
       color: #aaa;
+      border-top: 1px solid #00adb5;
     }
+
+    .contact a {
+      color: #00adb5;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .contact a:hover { color: #fff; }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 768px) {
+      nav { display: none; }
+      header h1 { font-size: 22px; }
     }
   </style>
 </head>
@@ -75,69 +116,149 @@
   <header>
     <h1>Chandramohan S</h1>
     <nav>
-      <a href="#about">About</a>
+      <a href="#summary">About</a>
+      <a href="#education">Education</a>
       <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Detail-oriented B.Tech Information Technology student with a strong foundation in software development, AI & ML, DevOps, and cybersecurity. Passionate about leveraging technology to solve problems and enhance user experience.</p>
-    <a href="resume.pdf" class="btn" download>📄 Download Resume</a>
+  <section id="summary" class="summary">
+    <h2>Executive Summary</h2>
+    <div class="card">
+      <p>Detail-oriented and proactive intern in the fields of Information Technology and Mechanical Engineering, with a solid foundation in software development, cybersecurity, and web development. Proven ability to apply technical knowledge to real-world projects, complemented by strong communication and leadership skills. Passionate about leveraging technology to solve problems and enhance user experiences.</p>
+      <a href="resume.pdf" download class="btn">📄 Download Resume</a>
+    </div>
   </section>
 
-  <section id="skills">
+  <section id="education" class="education">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>Saveetha Engineering College, Chennai</h3>
+      <p><b>Bachelor of Technology, Information Technology</b> — Expected Jun 2025</p>
+      <p>Relevant Coursework: Software Development, Cybersecurity, Data Structures, Database Management</p>
+    </div>
+    <div class="card">
+      <h3>Panimalar Polytechnic College, Chennai</h3>
+      <p><b>Diploma in Mechanical Engineering</b> — Apr 2022</p>
+    </div>
+  </section>
+
+  <section id="skills" class="skills">
     <h2>Technical Skills</h2>
-    <div class="skills">
-      <p><b>Languages:</b> Python, C, Java</p>
-      <p><b>AI & ML:</b> AI Agents, AI Tools (N8N), Machine Learning (Scikit-learn)</p>
-      <p><b>Tools & DevOps:</b> Git, GitHub, Jenkins, GitHub Actions</p>
-      <p><b>Cloud:</b> AWS, CI/CD Pipelines</p>
-      <p><b>Concepts:</b> Cybersecurity, UI Design (Figma), RFID-based Systems</p>
+    <div class="card">
+      <ul>
+        <li><b>Languages:</b> Python (Beginner), C (Basic), Java (Basic)</li>
+        <li><b>AI & ML:</b> AI Agents, AI Tools (N8N), Machine Learning (Scikit-learn)</li>
+        <li><b>Tools & DevOps:</b> Git, GitHub, Jenkins, GitHub Actions</li>
+        <li><b>Platforms & Cloud:</b> AWS, CI/CD Pipelines</li>
+        <li><b>Concepts & Others:</b> Cybersecurity, UI Design (Figma), RFID-based Systems</li>
+      </ul>
     </div>
   </section>
 
-  <section id="projects">
+  <section id="experience" class="experience">
+    <h2>Experience</h2>
+    <div class="card">
+      <h3>Intern - Security Analyst | Trios Technologies</h3>
+      <p><i>Feb 2025 – Mar 2025, Chennai, IN</i></p>
+      <ul>
+        <li>Conducted security assessments, vulnerability analysis, and risk mitigation strategies.</li>
+        <li>Monitored and analyzed threats to protect sensitive data.</li>
+        <li>Helped develop cybersecurity policies and compliance frameworks.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Intern - Web Developer | Fabhost</h3>
+      <p><i>Feb 2023 – Mar 2023, Chennai, IN</i></p>
+      <ul>
+        <li>Developed responsive web applications ensuring seamless UX.</li>
+        <li>Worked on front-end and back-end technologies.</li>
+        <li>Enhanced site functionality, fixed bugs, and added features.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Intern - Support System Analyst | Panasonic</h3>
+      <p><i>Mar 2022 – Apr 2022, Chennai, IN</i></p>
+      <ul>
+        <li>Assisted in developing and executing system test programs.</li>
+        <li>Analyzed test results, identified bottlenecks, and optimized workflows.</li>
+        <li>Improved stability and resolved technical issues.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
     <h2>Projects</h2>
-
-    <div class="project">
+    <div class="card">
       <h3>Cyber Threat Intelligence Platform</h3>
-      <p>Developed a Flask-based system to analyze and visualize real-time cyber threat data with authentication and RBAC security.</p>
-      <a href="https://github.com/chandramohan3" class="btn" target="_blank">🔗 View on GitHub</a>
+      <p>Flask, MongoDB, HTML/CSS/JS, REST APIs — Developed a platform to collect, analyze, and visualize cyber threat data with authentication and RBAC.</p>
     </div>
-
-    <div class="project">
+    <div class="card">
       <h3>AI Personal Scheduling Agent</h3>
-      <p>Built an AI Agent using N8N integrated with Google Calendar for automating schedule management and notifications.</p>
-      <a href="https://github.com/chandramohan3" class="btn" target="_blank">🔗 View on GitHub</a>
+      <p>N8N, Google Calendar API — Built an AI agent to manage schedules and send automated reminders.</p>
     </div>
-
-    <div class="project">
+    <div class="card">
+      <h3>AI-Powered WhatsApp Automation</h3>
+      <p>Automated WhatsApp conversations and workflows using N8N and AI agents.</p>
+    </div>
+    <div class="card">
+      <h3>CI/CD Pipeline Using AWS</h3>
+      <p>Implemented a CI/CD pipeline using AWS CodePipeline, CodeBuild, IAM, and CloudWatch.</p>
+    </div>
+    <div class="card">
       <h3>Loan Status Prediction Using ML</h3>
-      <p>Implemented SVM and Random Forest models with 80% accuracy and developed a Tkinter GUI for real-time predictions.</p>
-      <a href="https://github.com/chandramohan3" class="btn" target="_blank">🔗 View on GitHub</a>
+      <p>Built SVM and Random Forest models achieving 80.66% accuracy with a Tkinter GUI for predictions.</p>
     </div>
-
-    <div class="project">
+    <div class="card">
       <h3>Vehicle Ignition System Using RFID</h3>
-      <p>IoT-based vehicle ignition project integrating RFID authentication for secure engine startup.</p>
-      <a href="https://github.com/chandramohan3" class="btn" target="_blank">🔗 View on GitHub</a>
+      <p>Developed a secure IoT-based vehicle ignition system with RFID integration.</p>
     </div>
-
+    <div class="card">
+      <h3>Tic-Tac-Toe Web Game</h3>
+      <p>HTML, CSS, JavaScript — Designed an interactive Tic-Tac-Toe game for web browsers.</p>
+    </div>
   </section>
 
-  <section id="contact">
+  <section id="certifications" class="certifications">
+    <h2>Certifications</h2>
+    <div class="card">
+      <ul>
+        <li>AWS Cloud Practitioner – AWS Academy</li>
+        <li>Cybersecurity Analyst Job Simulation – TATA</li>
+        <li>Data Analytics and Visualization – Accenture</li>
+        <li>Corporate Analyst Development Program – JP Morgan</li>
+        <li>Immersive Technology Workshop – GeeksforGeeks</li>
+        <li>Project Tracker Management System – Coursera</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
     <h2>Contact</h2>
+    <p>📞 7358614048</p>
     <p>📧 chandramohan030513@gmail.com</p>
-    <p>🔗 <a href="https://www.linkedin.com/in/chandra-mohan-s-aa57a226a/" target="_blank" class="btn">LinkedIn</a></p>
-    <p>💻 <a href="https://github.com/chandramohan3" target="_blank" class="btn">GitHub</a></p>
+    <p>
+      <a href="https://www.linkedin.com/in/chandra-mohan-s-aa57a226a/" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/chandramohan3" target="_blank">GitHub</a>
+    </p>
   </section>
 
   <footer>
-    <p>© 2025 Chandramohan S | All Rights Reserved</p>
+    <p>© 2025 Chandramohan S | Designed with ❤️ using HTML, CSS & JS</p>
   </footer>
 
+  <script>
+    ScrollReveal().reveal('.card', { 
+      interval: 150,
+      distance: '30px',
+      origin: 'bottom',
+      opacity: 0,
+      duration: 1000
+    });
+  </script>
 </body>
 </html>
