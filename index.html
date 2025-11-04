@@ -1,52 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chandramohan S | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
+    :root {
+      --bg-dark: #0e0e0e;
+      --text-dark: #f1f1f1;
+      --accent: #00adb5;
+      --bg-light: #f5f5f5;
+      --text-light: #1a1a1a;
+    }
+
     body {
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      color: #f1f1f1;
-      line-height: 1.6;
+      background: var(--bg-dark);
+      color: var(--text-dark);
       scroll-behavior: smooth;
+      transition: 0.4s ease;
       overflow-x: hidden;
     }
 
-    /* HEADER */
-    header {
-      background: linear-gradient(90deg, #00adb5, #007bff);
-      padding: 20px 10%;
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    /* HERO SECTION */
+    #hero {
+      position: relative;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+      overflow: hidden;
     }
 
-    header h1 {
-      color: #fff;
-      font-size: 30px;
+    #particles-js {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      color: var(--accent);
       font-weight: 700;
-      letter-spacing: 1px;
+      text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);
     }
 
     .typing {
-      color: #fff;
-      font-size: 16px;
+      margin-top: 10px;
+      font-size: 1.2rem;
       font-weight: 500;
-      margin-top: 6px;
-      height: 22px;
-      overflow: hidden;
+      color: #fff;
       border-right: 2px solid #fff;
       white-space: nowrap;
+      overflow: hidden;
+      height: 30px;
       animation: blink 0.8s infinite;
     }
 
@@ -54,74 +78,74 @@
       50% { border-color: transparent; }
     }
 
-    nav {
-      margin-top: 15px;
-    }
-
-    nav a {
+    .scroll-down {
+      position: absolute;
+      bottom: 40px;
+      font-size: 16px;
       color: #fff;
-      margin: 0 12px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
+      animation: bounce 2s infinite;
     }
 
-    nav a:hover {
-      color: #000;
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* TOGGLE BUTTON */
+    .theme-toggle {
+      position: fixed;
+      top: 25px;
+      right: 30px;
       background: #fff;
-      padding: 5px 10px;
-      border-radius: 6px;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.4s;
     }
 
-    /* SECTIONS */
+    .theme-toggle img {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* MAIN CONTENT */
     section {
       padding: 80px 10%;
+      text-align: left;
       animation: fadeIn 1s ease-in-out;
+      z-index: 1;
     }
 
     h2 {
-      color: #00adb5;
+      color: var(--accent);
       font-size: 28px;
       margin-bottom: 30px;
-      border-left: 5px solid #00adb5;
+      border-left: 4px solid var(--accent);
       padding-left: 12px;
       text-transform: uppercase;
     }
 
-    /* CARD STYLE */
     .card {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
       padding: 25px;
+      border-radius: 15px;
       margin-bottom: 25px;
+      transition: 0.3s;
       backdrop-filter: blur(10px);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       box-shadow: 0 0 20px rgba(0,173,181,0.7);
     }
 
-    /* SKILL BARS */
-    .skill-bar {
-      background: #1e1e1e;
-      border-radius: 25px;
-      overflow: hidden;
-      margin-bottom: 15px;
-    }
-
-    .skill-bar span {
-      display: block;
-      height: 10px;
-      border-radius: 25px;
-      background: linear-gradient(90deg, #00adb5, #007bff);
-      width: 0;
-      transition: width 1.5s ease;
-    }
-
-    /* BUTTON */
     .btn {
       background: linear-gradient(90deg, #00adb5, #007bff);
       color: #fff;
@@ -136,30 +160,16 @@
 
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0px 0px 15px #00adb5;
+      box-shadow: 0 0 15px var(--accent);
     }
 
     footer {
       text-align: center;
-      background: #111;
-      color: #aaa;
       padding: 30px 0;
-      margin-top: 50px;
+      color: #ccc;
       font-size: 14px;
-    }
-
-    /* CONTACT */
-    .contact a {
-      color: #00adb5;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .contact a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #00adb5;
+      background: #111;
+      margin-top: 50px;
     }
 
     @keyframes fadeIn {
@@ -168,35 +178,30 @@
     }
 
     @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      nav a {
-        display: inline-block;
-        margin: 6px;
-      }
-      header h1 { font-size: 24px; }
-      .typing { font-size: 14px; }
+      .hero-content h1 { font-size: 2.2rem; }
+      .typing { font-size: 1rem; }
+      section { padding: 60px 5%; }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>Chandramohan S</h1>
-    <div class="typing" id="typing-text"></div>
-    <nav>
-      <a href="#summary">About</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
+  <!-- THEME TOGGLE -->
+  <button class="theme-toggle" id="theme-toggle">
+    <img src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" alt="Toggle">
+  </button>
+
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <h1>Chandramohan S</h1>
+      <div class="typing" id="typing-text"></div>
+      <div class="scroll-down">▼ Scroll Down ▼</div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
   <section id="summary">
     <h2>Executive Summary</h2>
     <div class="card">
@@ -205,6 +210,7 @@
     </div>
   </section>
 
+  <!-- EDUCATION -->
   <section id="education">
     <h2>Education</h2>
     <div class="card">
@@ -218,59 +224,59 @@
     </div>
   </section>
 
+  <!-- SKILLS -->
   <section id="skills">
     <h2>Technical Skills</h2>
     <div class="card">
-      <p><b>Languages:</b> Python, C, Java</p>
-      <div class="skill-bar"><span data-skill="75"></span></div>
-      <p><b>AI & ML:</b> AI Agents, AI Tools (N8N), Scikit-learn</p>
-      <div class="skill-bar"><span data-skill="80"></span></div>
-      <p><b>DevOps Tools:</b> Git, GitHub, Jenkins, GitHub Actions</p>
-      <div class="skill-bar"><span data-skill="70"></span></div>
-      <p><b>Cloud:</b> AWS, CI/CD Pipelines</p>
-      <div class="skill-bar"><span data-skill="65"></span></div>
-      <p><b>Other:</b> Cybersecurity, Figma UI Design, RFID Systems</p>
-      <div class="skill-bar"><span data-skill="70"></span></div>
+      <ul>
+        <li><b>Languages:</b> Python, C, Java</li>
+        <li><b>AI & ML:</b> AI Agents, AI Tools (N8N), Scikit-learn</li>
+        <li><b>DevOps Tools:</b> Git, GitHub, Jenkins, GitHub Actions</li>
+        <li><b>Cloud:</b> AWS, CI/CD Pipelines</li>
+        <li><b>Other:</b> Cybersecurity, Figma UI Design, RFID-based Systems</li>
+      </ul>
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
   <section id="experience">
     <h2>Experience</h2>
     <div class="card">
       <h3>Security Analyst Intern | Trios Technologies</h3>
-      <p>Feb 2025 – Mar 2025, Chennai, IN</p>
+      <p>Feb 2025 – Mar 2025 | Chennai, IN</p>
       <ul>
         <li>Conducted vulnerability analysis and implemented data protection measures.</li>
-        <li>Supported in cybersecurity policy and compliance framework creation.</li>
+        <li>Supported cybersecurity policy and compliance framework creation.</li>
       </ul>
     </div>
     <div class="card">
       <h3>Web Developer Intern | Fabhost</h3>
-      <p>Feb 2023 – Mar 2023, Chennai, IN</p>
+      <p>Feb 2023 – Mar 2023 | Chennai, IN</p>
       <ul>
         <li>Developed responsive web apps with strong UX focus.</li>
-        <li>Enhanced functionality and fixed bugs for performance optimization.</li>
+        <li>Enhanced site functionality and performance.</li>
       </ul>
     </div>
     <div class="card">
       <h3>Support System Analyst Intern | Panasonic</h3>
-      <p>Mar 2022 – Apr 2022, Chennai, IN</p>
+      <p>Mar 2022 – Apr 2022 | Chennai, IN</p>
       <ul>
-        <li>Analyzed system performance and optimized workflow processes.</li>
+        <li>Assisted in developing and executing test programs and improved workflows.</li>
       </ul>
     </div>
   </section>
 
+  <!-- PROJECTS -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="card"><h3>Cyber Threat Intelligence Platform</h3><p>Flask, MongoDB, REST API – Real-time data visualization and threat analysis system with secure authentication.</p></div>
-    <div class="card"><h3>AI Personal Scheduling Agent</h3><p>N8N, Google Calendar API – Automated meeting and reminder scheduling using AI workflows.</p></div>
-    <div class="card"><h3>CI/CD Pipeline Using AWS</h3><p>AWS CodePipeline & CodeBuild – End-to-end automation with IAM-based access control.</p></div>
-    <div class="card"><h3>Loan Status Prediction</h3><p>Python ML – Achieved 80.6% accuracy using SVM and Random Forest.</p></div>
-    <div class="card"><h3>Vehicle Ignition Using RFID</h3><p>IoT project integrating RFID authentication for secure ignition.</p></div>
-    <div class="card"><h3>Tic-Tac-Toe Web Game</h3><p>Fun JavaScript-based interactive game.</p></div>
+    <div class="card"><h3>Cyber Threat Intelligence Platform</h3><p>Flask, MongoDB, REST API – Real-time data visualization and threat analysis system.</p></div>
+    <div class="card"><h3>AI Personal Scheduling Agent</h3><p>N8N, Google Calendar API – Automated scheduling using AI workflows.</p></div>
+    <div class="card"><h3>CI/CD Pipeline Using AWS</h3><p>End-to-end automation with AWS CodePipeline, IAM, and CloudWatch.</p></div>
+    <div class="card"><h3>Loan Status Prediction</h3><p>Python ML – Achieved 80.6% accuracy with SVM and Random Forest models.</p></div>
+    <div class="card"><h3>Vehicle Ignition System Using RFID</h3><p>IoT-based ignition control using RFID authentication.</p></div>
   </section>
 
+  <!-- CERTIFICATIONS -->
   <section id="certifications">
     <h2>Certifications</h2>
     <div class="card">
@@ -285,37 +291,44 @@
     </div>
   </section>
 
-  <section id="contact" class="contact">
+  <!-- CONTACT -->
+  <section id="contact">
     <h2>Contact</h2>
-    <p>📞 7358614048</p>
-    <p>📧 chandramohan030513@gmail.com</p>
-    <a href="https://www.linkedin.com/in/chandra-mohan-s-aa57a226a/" class="btn" target="_blank">LinkedIn</a>
-    <a href="https://github.com/chandramohan3" class="btn" target="_blank">GitHub</a>
+    <div class="card">
+      <p>📞 7358614048</p>
+      <p>📧 chandramohan030513@gmail.com</p>
+      <a href="https://www.linkedin.com/in/chandra-mohan-s-aa57a226a/" class="btn" target="_blank">LinkedIn</a>
+      <a href="https://github.com/chandramohan3" class="btn" target="_blank">GitHub</a>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Chandramohan S | Designed with ❤️ using HTML, CSS, and JavaScript</p>
+    <p>© 2025 Chandramohan S | Designed with ❤️ using HTML, CSS, and JS</p>
   </footer>
 
+  <!-- PARTICLES + JS EFFECTS -->
   <script>
-    // Scroll animations
-    ScrollReveal().reveal('.card', { interval: 150, distance: '40px', origin: 'bottom', duration: 1000 });
-
-    // Skill bar animation
-    const skills = document.querySelectorAll('.skill-bar span');
-    window.addEventListener('scroll', () => {
-      skills.forEach(skill => {
-        const rect = skill.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          skill.style.width = skill.getAttribute('data-skill') + '%';
-        }
-      });
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#00adb5" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3 },
+        line_linked: { enable: true, distance: 150, color: "#00adb5", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 3, direction: "none", random: false }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" } },
+        modes: { grab: { distance: 150, line_linked: { opacity: 1 } } }
+      },
+      retina_detect: true
     });
 
     // Typing animation
     const roles = ["AI & ML Enthusiast", "DevOps Learner", "Cybersecurity Explorer", "Full Stack Developer"];
-    let index = 0;
-    let charIndex = 0;
+    let index = 0, charIndex = 0;
     const typingText = document.getElementById("typing-text");
 
     function typeEffect() {
@@ -323,9 +336,7 @@
         typingText.textContent += roles[index].charAt(charIndex);
         charIndex++;
         setTimeout(typeEffect, 100);
-      } else {
-        setTimeout(eraseEffect, 1500);
-      }
+      } else setTimeout(eraseEffect, 1500);
     }
 
     function eraseEffect() {
@@ -339,9 +350,19 @@
       }
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(typeEffect, 1000);
+    document.addEventListener("DOMContentLoaded", () => setTimeout(typeEffect, 1000));
+
+    // Theme Toggle
+    const toggle = document.getElementById("theme-toggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      toggle.innerHTML = document.body.classList.contains("light")
+        ? '<img src="https://cdn-icons-png.flaticon.com/512/979/979585.png">'
+        : '<img src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png">';
     });
+
+    // Scroll reveal
+    ScrollReveal().reveal('.card', { interval: 150, distance: '40px', origin: 'bottom', duration: 1000 });
   </script>
 </body>
 </html>
