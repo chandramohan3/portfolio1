@@ -1,97 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chandramohan S | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/scrollreveal"></script>
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
     body {
-      background-color: #0e0e0e;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
       color: #f1f1f1;
-      scroll-behavior: smooth;
       line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
+    /* HEADER */
     header {
+      background: linear-gradient(90deg, #00adb5, #007bff);
+      padding: 20px 10%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      padding: 20px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #00adb5;
+      z-index: 1000;
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
     }
+
     header h1 {
-      color: #00adb5;
-      font-size: 28px;
+      color: #fff;
+      font-size: 30px;
       font-weight: 700;
+      letter-spacing: 1px;
     }
+
+    .typing {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 6px;
+      height: 22px;
+      overflow: hidden;
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
     nav a {
       color: #fff;
+      margin: 0 12px;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: 500;
       transition: 0.3s;
     }
-    nav a:hover { color: #00adb5; }
 
+    nav a:hover {
+      color: #000;
+      background: #fff;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    /* SECTIONS */
     section {
       padding: 80px 10%;
-      animation: fadeIn 1.2s ease-in-out;
+      animation: fadeIn 1s ease-in-out;
     }
+
     h2 {
       color: #00adb5;
       font-size: 28px;
-      margin-bottom: 25px;
-      border-left: 4px solid #00adb5;
-      padding-left: 10px;
+      margin-bottom: 30px;
+      border-left: 5px solid #00adb5;
+      padding-left: 12px;
+      text-transform: uppercase;
     }
-    .summary, .education, .skills, .experience, .projects, .certifications {
-      margin-bottom: 60px;
-    }
+
+    /* CARD STYLE */
     .card {
-      background: #1a1a1a;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
       padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 25px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
+
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px rgba(0,173,181,0.7);
+    }
+
+    /* SKILL BARS */
+    .skill-bar {
+      background: #1e1e1e;
+      border-radius: 25px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .skill-bar span {
+      display: block;
+      height: 10px;
+      border-radius: 25px;
+      background: linear-gradient(90deg, #00adb5, #007bff);
+      width: 0;
+      transition: width 1.5s ease;
+    }
+
+    /* BUTTON */
+    .btn {
+      background: linear-gradient(90deg, #00adb5, #007bff);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
       box-shadow: 0px 0px 15px #00adb5;
     }
-    ul { list-style: none; }
-    ul li { margin-bottom: 8px; }
-
-    .btn {
-      display: inline-block;
-      background: #00adb5;
-      color: #fff;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-top: 15px;
-      transition: background 0.3s ease;
-    }
-    .btn:hover { background: #03c3cc; }
 
     footer {
       text-align: center;
       background: #111;
-      padding: 30px 0;
       color: #aaa;
-      border-top: 1px solid #00adb5;
+      padding: 30px 0;
+      margin-top: 50px;
+      font-size: 14px;
     }
 
+    /* CONTACT */
     .contact a {
       color: #00adb5;
       text-decoration: none;
@@ -99,22 +156,36 @@
       font-weight: 500;
       transition: 0.3s;
     }
-    .contact a:hover { color: #fff; }
+
+    .contact a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #00adb5;
+    }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     @media (max-width: 768px) {
-      nav { display: none; }
-      header h1 { font-size: 22px; }
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        display: inline-block;
+        margin: 6px;
+      }
+      header h1 { font-size: 24px; }
+      .typing { font-size: 14px; }
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <h1>Chandramohan S</h1>
+    <div class="typing" id="typing-text"></div>
     <nav>
       <a href="#summary">About</a>
       <a href="#education">Education</a>
@@ -126,113 +197,90 @@
     </nav>
   </header>
 
-  <section id="summary" class="summary">
+  <section id="summary">
     <h2>Executive Summary</h2>
     <div class="card">
-      <p>Detail-oriented and proactive intern in the fields of Information Technology and Mechanical Engineering, with a solid foundation in software development, cybersecurity, and web development. Proven ability to apply technical knowledge to real-world projects, complemented by strong communication and leadership skills. Passionate about leveraging technology to solve problems and enhance user experiences.</p>
+      <p>Detail-oriented and proactive intern in Information Technology and Mechanical Engineering with a strong foundation in software development, cybersecurity, and web development. Proven ability to apply technical knowledge to real-world projects with excellent communication and leadership skills.</p>
       <a href="resume.pdf" download class="btn">📄 Download Resume</a>
     </div>
   </section>
 
-  <section id="education" class="education">
+  <section id="education">
     <h2>Education</h2>
     <div class="card">
       <h3>Saveetha Engineering College, Chennai</h3>
-      <p><b>Bachelor of Technology, Information Technology</b> — Expected Jun 2025</p>
+      <p><b>B.Tech - Information Technology</b> | Expected Jun 2025</p>
       <p>Relevant Coursework: Software Development, Cybersecurity, Data Structures, Database Management</p>
     </div>
     <div class="card">
       <h3>Panimalar Polytechnic College, Chennai</h3>
-      <p><b>Diploma in Mechanical Engineering</b> — Apr 2022</p>
+      <p><b>Diploma in Mechanical Engineering</b> | Apr 2022</p>
     </div>
   </section>
 
-  <section id="skills" class="skills">
+  <section id="skills">
     <h2>Technical Skills</h2>
     <div class="card">
-      <ul>
-        <li><b>Languages:</b> Python (Beginner), C (Basic), Java (Basic)</li>
-        <li><b>AI & ML:</b> AI Agents, AI Tools (N8N), Machine Learning (Scikit-learn)</li>
-        <li><b>Tools & DevOps:</b> Git, GitHub, Jenkins, GitHub Actions</li>
-        <li><b>Platforms & Cloud:</b> AWS, CI/CD Pipelines</li>
-        <li><b>Concepts & Others:</b> Cybersecurity, UI Design (Figma), RFID-based Systems</li>
-      </ul>
+      <p><b>Languages:</b> Python, C, Java</p>
+      <div class="skill-bar"><span data-skill="75"></span></div>
+      <p><b>AI & ML:</b> AI Agents, AI Tools (N8N), Scikit-learn</p>
+      <div class="skill-bar"><span data-skill="80"></span></div>
+      <p><b>DevOps Tools:</b> Git, GitHub, Jenkins, GitHub Actions</p>
+      <div class="skill-bar"><span data-skill="70"></span></div>
+      <p><b>Cloud:</b> AWS, CI/CD Pipelines</p>
+      <div class="skill-bar"><span data-skill="65"></span></div>
+      <p><b>Other:</b> Cybersecurity, Figma UI Design, RFID Systems</p>
+      <div class="skill-bar"><span data-skill="70"></span></div>
     </div>
   </section>
 
-  <section id="experience" class="experience">
+  <section id="experience">
     <h2>Experience</h2>
     <div class="card">
-      <h3>Intern - Security Analyst | Trios Technologies</h3>
-      <p><i>Feb 2025 – Mar 2025, Chennai, IN</i></p>
+      <h3>Security Analyst Intern | Trios Technologies</h3>
+      <p>Feb 2025 – Mar 2025, Chennai, IN</p>
       <ul>
-        <li>Conducted security assessments, vulnerability analysis, and risk mitigation strategies.</li>
-        <li>Monitored and analyzed threats to protect sensitive data.</li>
-        <li>Helped develop cybersecurity policies and compliance frameworks.</li>
+        <li>Conducted vulnerability analysis and implemented data protection measures.</li>
+        <li>Supported in cybersecurity policy and compliance framework creation.</li>
       </ul>
     </div>
     <div class="card">
-      <h3>Intern - Web Developer | Fabhost</h3>
-      <p><i>Feb 2023 – Mar 2023, Chennai, IN</i></p>
+      <h3>Web Developer Intern | Fabhost</h3>
+      <p>Feb 2023 – Mar 2023, Chennai, IN</p>
       <ul>
-        <li>Developed responsive web applications ensuring seamless UX.</li>
-        <li>Worked on front-end and back-end technologies.</li>
-        <li>Enhanced site functionality, fixed bugs, and added features.</li>
+        <li>Developed responsive web apps with strong UX focus.</li>
+        <li>Enhanced functionality and fixed bugs for performance optimization.</li>
       </ul>
     </div>
     <div class="card">
-      <h3>Intern - Support System Analyst | Panasonic</h3>
-      <p><i>Mar 2022 – Apr 2022, Chennai, IN</i></p>
+      <h3>Support System Analyst Intern | Panasonic</h3>
+      <p>Mar 2022 – Apr 2022, Chennai, IN</p>
       <ul>
-        <li>Assisted in developing and executing system test programs.</li>
-        <li>Analyzed test results, identified bottlenecks, and optimized workflows.</li>
-        <li>Improved stability and resolved technical issues.</li>
+        <li>Analyzed system performance and optimized workflow processes.</li>
       </ul>
     </div>
   </section>
 
-  <section id="projects" class="projects">
+  <section id="projects">
     <h2>Projects</h2>
-    <div class="card">
-      <h3>Cyber Threat Intelligence Platform</h3>
-      <p>Flask, MongoDB, HTML/CSS/JS, REST APIs — Developed a platform to collect, analyze, and visualize cyber threat data with authentication and RBAC.</p>
-    </div>
-    <div class="card">
-      <h3>AI Personal Scheduling Agent</h3>
-      <p>N8N, Google Calendar API — Built an AI agent to manage schedules and send automated reminders.</p>
-    </div>
-    <div class="card">
-      <h3>AI-Powered WhatsApp Automation</h3>
-      <p>Automated WhatsApp conversations and workflows using N8N and AI agents.</p>
-    </div>
-    <div class="card">
-      <h3>CI/CD Pipeline Using AWS</h3>
-      <p>Implemented a CI/CD pipeline using AWS CodePipeline, CodeBuild, IAM, and CloudWatch.</p>
-    </div>
-    <div class="card">
-      <h3>Loan Status Prediction Using ML</h3>
-      <p>Built SVM and Random Forest models achieving 80.66% accuracy with a Tkinter GUI for predictions.</p>
-    </div>
-    <div class="card">
-      <h3>Vehicle Ignition System Using RFID</h3>
-      <p>Developed a secure IoT-based vehicle ignition system with RFID integration.</p>
-    </div>
-    <div class="card">
-      <h3>Tic-Tac-Toe Web Game</h3>
-      <p>HTML, CSS, JavaScript — Designed an interactive Tic-Tac-Toe game for web browsers.</p>
-    </div>
+    <div class="card"><h3>Cyber Threat Intelligence Platform</h3><p>Flask, MongoDB, REST API – Real-time data visualization and threat analysis system with secure authentication.</p></div>
+    <div class="card"><h3>AI Personal Scheduling Agent</h3><p>N8N, Google Calendar API – Automated meeting and reminder scheduling using AI workflows.</p></div>
+    <div class="card"><h3>CI/CD Pipeline Using AWS</h3><p>AWS CodePipeline & CodeBuild – End-to-end automation with IAM-based access control.</p></div>
+    <div class="card"><h3>Loan Status Prediction</h3><p>Python ML – Achieved 80.6% accuracy using SVM and Random Forest.</p></div>
+    <div class="card"><h3>Vehicle Ignition Using RFID</h3><p>IoT project integrating RFID authentication for secure ignition.</p></div>
+    <div class="card"><h3>Tic-Tac-Toe Web Game</h3><p>Fun JavaScript-based interactive game.</p></div>
   </section>
 
-  <section id="certifications" class="certifications">
+  <section id="certifications">
     <h2>Certifications</h2>
     <div class="card">
       <ul>
         <li>AWS Cloud Practitioner – AWS Academy</li>
-        <li>Cybersecurity Analyst Job Simulation – TATA</li>
-        <li>Data Analytics and Visualization – Accenture</li>
-        <li>Corporate Analyst Development Program – JP Morgan</li>
-        <li>Immersive Technology Workshop – GeeksforGeeks</li>
-        <li>Project Tracker Management System – Coursera</li>
+        <li>Cybersecurity Analyst Simulation – TATA</li>
+        <li>Data Analytics & Visualization – Accenture</li>
+        <li>Corporate Analyst Program – JP Morgan</li>
+        <li>Immersive Tech Workshop – GeeksforGeeks</li>
+        <li>Project Tracker Management – Coursera</li>
       </ul>
     </div>
   </section>
@@ -241,23 +289,58 @@
     <h2>Contact</h2>
     <p>📞 7358614048</p>
     <p>📧 chandramohan030513@gmail.com</p>
-    <p>
-      <a href="https://www.linkedin.com/in/chandra-mohan-s-aa57a226a/" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/chandramohan3" target="_blank">GitHub</a>
-    </p>
+    <a href="https://www.linkedin.com/in/chandra-mohan-s-aa57a226a/" class="btn" target="_blank">LinkedIn</a>
+    <a href="https://github.com/chandramohan3" class="btn" target="_blank">GitHub</a>
   </section>
 
   <footer>
-    <p>© 2025 Chandramohan S | Designed with ❤️ using HTML, CSS & JS</p>
+    <p>© 2025 Chandramohan S | Designed with ❤️ using HTML, CSS, and JavaScript</p>
   </footer>
 
   <script>
-    ScrollReveal().reveal('.card', { 
-      interval: 150,
-      distance: '30px',
-      origin: 'bottom',
-      opacity: 0,
-      duration: 1000
+    // Scroll animations
+    ScrollReveal().reveal('.card', { interval: 150, distance: '40px', origin: 'bottom', duration: 1000 });
+
+    // Skill bar animation
+    const skills = document.querySelectorAll('.skill-bar span');
+    window.addEventListener('scroll', () => {
+      skills.forEach(skill => {
+        const rect = skill.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          skill.style.width = skill.getAttribute('data-skill') + '%';
+        }
+      });
+    });
+
+    // Typing animation
+    const roles = ["AI & ML Enthusiast", "DevOps Learner", "Cybersecurity Explorer", "Full Stack Developer"];
+    let index = 0;
+    let charIndex = 0;
+    const typingText = document.getElementById("typing-text");
+
+    function typeEffect() {
+      if (charIndex < roles[index].length) {
+        typingText.textContent += roles[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, 100);
+      } else {
+        setTimeout(eraseEffect, 1500);
+      }
+    }
+
+    function eraseEffect() {
+      if (charIndex > 0) {
+        typingText.textContent = roles[index].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseEffect, 50);
+      } else {
+        index = (index + 1) % roles.length;
+        setTimeout(typeEffect, 300);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeEffect, 1000);
     });
   </script>
 </body>
