@@ -31,28 +31,31 @@
       color: var(--text-light);
     }
 
+    /* FULL PAGE PARTICLE BACKGROUND */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: transparent;
+    }
+
+    /* Make sure all content is above the background */
+    section, footer, .theme-toggle {
+      position: relative;
+      z-index: 2;
+    }
+
     /* HERO SECTION */
     #hero {
-      position: relative;
       height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      overflow: hidden;
-    }
-
-    #particles-js {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .hero-content {
-      z-index: 2;
     }
 
     .hero-content h1 {
@@ -103,7 +106,6 @@
       height: 40px;
       cursor: pointer;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -120,7 +122,6 @@
       padding: 80px 10%;
       text-align: left;
       animation: fadeIn 1s ease-in-out;
-      z-index: 1;
     }
 
     h2 {
@@ -168,7 +169,7 @@
       padding: 30px 0;
       color: #ccc;
       font-size: 14px;
-      background: #111;
+      background: rgba(0, 0, 0, 0.4);
       margin-top: 50px;
     }
 
@@ -186,6 +187,9 @@
 </head>
 <body>
 
+  <!-- FULL-PAGE PARTICLE BACKGROUND -->
+  <div id="particles-js"></div>
+
   <!-- THEME TOGGLE -->
   <button class="theme-toggle" id="theme-toggle">
     <img src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" alt="Toggle">
@@ -193,7 +197,6 @@
 
   <!-- HERO SECTION -->
   <section id="hero">
-    <div id="particles-js"></div>
     <div class="hero-content">
       <h1>Chandramohan S</h1>
       <div class="typing" id="typing-text"></div>
@@ -310,13 +313,13 @@
   <script>
     particlesJS("particles-js", {
       particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
+        number: { value: 100, density: { enable: true, value_area: 1000 } },
         color: { value: "#00adb5" },
         shape: { type: "circle" },
-        opacity: { value: 0.5, random: false },
+        opacity: { value: 0.5 },
         size: { value: 3 },
         line_linked: { enable: true, distance: 150, color: "#00adb5", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 3, direction: "none", random: false }
+        move: { enable: true, speed: 2, direction: "none", random: false }
       },
       interactivity: {
         detect_on: "canvas",
